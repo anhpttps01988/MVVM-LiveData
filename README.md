@@ -1,2 +1,2 @@
 # MVVM-LiveData
-- MVVM -> Dagger -> Rx -> Livedata
+- MVVM -> Repository -> Dagger -> Rx -> Livedata

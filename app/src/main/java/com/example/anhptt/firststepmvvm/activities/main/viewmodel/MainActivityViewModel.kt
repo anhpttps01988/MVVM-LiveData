@@ -28,11 +28,6 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
 
     override fun start() {
         super.start()
-        if (dataRepository != null) {
-            Log.d(TAG, "data repository has been dependency injection")
-        } else {
-            Log.d(TAG, "data repository not yet dependency injection")
-        }
     }
 
     override fun stop() {

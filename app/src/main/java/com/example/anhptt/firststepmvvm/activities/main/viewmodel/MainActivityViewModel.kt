@@ -18,7 +18,8 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
 
     var name = MutableLiveData<String>()
     var goToDetail = SingleLiveEvent<Void>()
-    var bookDatList = MutableLiveData<ArrayList<Book>>()
+    var bookDataList = MutableLiveData<List<Book>>()
+
     private var compositeDisposable = CompositeDisposable()
 
     companion object {
@@ -55,7 +56,7 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
         if (response != null) {
             Log.d(TAG, "size = ${response.size}")
             for (i in response) {
-                Log.d(TAG, "Author = ${i.name}")
+                bookDataList.postValue(response)
             }
         }
     }

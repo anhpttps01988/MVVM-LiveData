@@ -9,12 +9,14 @@ import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.anhptt.firststepmvvm.R
 import com.example.anhptt.firststepmvvm.ViewModelFactory
 import com.example.anhptt.firststepmvvm.activities.detail.DetailActivity
+import com.example.anhptt.firststepmvvm.activities.main.adapter.BookAdapter
 import com.example.anhptt.firststepmvvm.activities.main.viewmodel.MainActivityContract
 import com.example.anhptt.firststepmvvm.activities.main.viewmodel.MainActivityViewModel
 import com.example.anhptt.firststepmvvm.common.activity.BaseActivity
@@ -22,6 +24,7 @@ import com.example.anhptt.firststepmvvm.common.di.scopes.PerActivity
 import com.example.anhptt.firststepmvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import javax.inject.Inject
 
 @PerActivity
@@ -32,6 +35,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mAdapter: BookAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +62,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         viewModel.goToDetail.observe(this, Observer {
             this.goToDetail()
         })
+        mAdapter = BookAdapter(listOf())
+        recyclerView.layoutManager = LinearLayoutManager(this@MainActivity, 1, false)
+        recyclerView.adapter = mAdapter
     }
 
     override fun goToDetail() {

@@ -42,10 +42,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         lifecycle.addObserver(viewModel)
         binding.appBarMain!!.contentMain!!.viewModel = viewModel
         setSupportActionBar(toolbar)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+//        }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -57,16 +58,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         viewModel.goToDetail.observe(this, Observer {
             this.goToDetail()
         })
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.start()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        viewModel.stop()
     }
 
     override fun goToDetail() {

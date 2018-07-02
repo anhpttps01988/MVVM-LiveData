@@ -13,6 +13,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".activities.main.view.MainActivity"
@@ -26,7 +27,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.navigatorDetail()}" />
+            android:onClick="@{() -> viewModel.loadBookData()}"
+            android:text="Call API" />
 
     </LinearLayout>
 </layout>

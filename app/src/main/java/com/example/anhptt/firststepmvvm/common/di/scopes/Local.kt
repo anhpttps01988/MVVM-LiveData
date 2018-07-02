@@ -5,5 +5,5 @@ import javax.inject.Qualifier
 
 @Qualifier
 @MustBeDocumented
-@Retention(AnnotationRetention.RUNTIME)
+@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 annotation class Local

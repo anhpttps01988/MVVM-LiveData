@@ -1,5 +1,6 @@
 package com.example.anhptt.firststepmvvm.common.di
 
+import android.app.Application
 import com.example.anhptt.firststepmvvm.App
 import com.example.anhptt.firststepmvvm.data.source.DataRepository
 import com.example.anhptt.firststepmvvm.data.source.di.RepositoryModule
@@ -11,9 +12,17 @@ import dagger.android.support.DaggerApplication
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, AndroidSupportInjectionModule::class, BaseActivityBindingModule::class, RepositoryModule::class])
+@Component(
+        modules =
+        [
+            AppModule::class,
+            RepositoryModule::class,
+            NetModule::class,
+            AndroidSupportInjectionModule::class,
+            BaseActivityBindingModule::class
+        ])
 interface AppComponent : AndroidInjector<DaggerApplication> {
-    fun dataRepository(): DataRepository
+
     fun inject(app: App)
 
     override fun inject(instance: DaggerApplication?) {
@@ -22,7 +31,7 @@ interface AppComponent : AndroidInjector<DaggerApplication> {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(application: App): Builder
+        fun application(application: Application): Builder
 
         fun build(): AppComponent
     }

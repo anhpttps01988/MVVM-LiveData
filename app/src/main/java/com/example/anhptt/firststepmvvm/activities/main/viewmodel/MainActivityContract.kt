@@ -7,6 +7,7 @@ interface MainActivityContract {
     interface ViewModelContract{
         fun displayName() : MutableLiveData<String>
         fun navigatorDetail()
+        fun loadBookData()
     }
 
     interface Navigator {

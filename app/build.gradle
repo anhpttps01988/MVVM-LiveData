@@ -36,8 +36,15 @@ dependencies {
     api 'com.android.support:design:27.1.1'
     api 'com.android.support.constraint:constraint-layout:1.1.2'
     //lifecycle
-    implementation  "android.arch.lifecycle:extensions:$lifecycleVersion"
-    implementation  "android.arch.lifecycle:viewmodel:$lifecycleVersion"
+    api "android.arch.lifecycle:extensions:$lifecycleVersion"
+    api "android.arch.lifecycle:viewmodel:$lifecycleVersion"
+    //okhttp and retrofit
+    api "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    api 'com.google.code.gson:gson:2.8.5'
     // Dagger
     api "com.google.dagger:dagger-android:$daggerVersion"
     api "com.google.dagger:dagger-android-support:$daggerVersion"

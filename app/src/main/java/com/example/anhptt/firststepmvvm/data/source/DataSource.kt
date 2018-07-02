@@ -1,5 +1,11 @@
 package com.example.anhptt.firststepmvvm.data.source
 
-interface DataSource{
+import com.example.anhptt.firststepmvvm.data.source.response.Book
+import io.reactivex.Observable
+import retrofit2.Response
+
+interface DataSource {
+
+    fun getBooks() : Observable<Response<List<Book>>>
 
 }

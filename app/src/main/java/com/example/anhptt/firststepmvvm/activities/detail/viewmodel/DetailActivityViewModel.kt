@@ -6,7 +6,7 @@ import com.example.anhptt.firststepmvvm.common.viewmodel.BaseViewModel
 import com.example.anhptt.firststepmvvm.data.source.DataRepository
 import javax.inject.Inject
 
-class DetailActivityViewModel @Inject constructor(private var dataRepository: DataRepository) : BaseViewModel(), LifecycleObserver, DetailActivityViewModelContract.ViewModelContract {
+class DetailActivityViewModel @Inject constructor() : BaseViewModel(), LifecycleObserver, DetailActivityViewModelContract.ViewModelContract {
 
 
     override fun start() {

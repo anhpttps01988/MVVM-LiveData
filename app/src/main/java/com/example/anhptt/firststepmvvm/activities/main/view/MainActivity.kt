@@ -44,14 +44,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         binding.setLifecycleOwner(this)
         viewModel = ViewModelProviders.of(this@MainActivity, viewModelFactory).get(MainActivityViewModel::class.java)
         lifecycle.addObserver(viewModel)
+        //set viewmodel load data
         binding.appBarMain!!.contentMain!!.viewModel = viewModel
+        //set viewmodel navigator event
+        binding.appBarMain!!.viewModel = viewModel
         setSupportActionBar(toolbar)
-
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
-//        }
-
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)

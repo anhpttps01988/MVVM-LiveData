@@ -2,14 +2,16 @@
 <layout>
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.anhptt.firststepmvvm.activities.detail.viewmodel.DetailActivityViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.anhptt.firststepmvvm.activities.detail.viewmodel.DetailActivityViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbl_first_name"
+            android:text="@={viewModel.editFirstName}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbl_last_name"
+            android:text="@={viewModel.editLastName}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{() -> viewModel.onSubmitData()}"
+            android:text="@string/btn_submit"
+            android:textAllCaps="false" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onRefresh="@{viewModel}"
+            app:refreshing="@{viewModel.isRefreshingData()}">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dataSampleList="@{viewModel.listDataSample}" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.anhptt.firststepmvvm.App
 import com.example.anhptt.firststepmvvm.data.source.DataRepository
 import com.example.anhptt.firststepmvvm.data.source.di.RepositoryModule
+import com.example.anhptt.firststepmvvm.data.source.local.dao.di.RoomModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -18,6 +19,7 @@ import javax.inject.Singleton
             AppModule::class,
             RepositoryModule::class,
             NetModule::class,
+            RoomModule::class,
             AndroidSupportInjectionModule::class,
             BaseActivityBindingModule::class
         ])

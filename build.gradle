@@ -8,6 +8,7 @@ buildscript {
     ext.lifecycleVersion = '1.1.1'
     ext.okhttpVersion = '3.10.0'
     ext.retrofitVersion = '2.4.0'
+    ext.roomVersion = '1.1.1'
     repositories {
         jcenter()
         maven { url 'https://maven.google.com' }

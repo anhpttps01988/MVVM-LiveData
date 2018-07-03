@@ -17,7 +17,7 @@ object SwipeRefreshDataBinding {
             if (viewModel is MainActivityViewModel) {
                 viewModel.refreshBookData(true)
             } else if (viewModel is DetailActivityViewModel) {
-                // TODO
+                viewModel.onRefreshData(true)
             }
         }
     }

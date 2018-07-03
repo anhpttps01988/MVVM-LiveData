@@ -9,7 +9,7 @@ import android.util.Log
 import java.util.concurrent.atomic.AtomicBoolean
 
 
-class SingleLiveEvent<T> : MutableLiveData<T>() {
+open class SingleLiveEvent<T> : MutableLiveData<T>() {
 
     private val mPending = AtomicBoolean(false)
 

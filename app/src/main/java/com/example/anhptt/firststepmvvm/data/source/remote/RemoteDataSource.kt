@@ -2,7 +2,9 @@ package com.example.anhptt.firststepmvvm.data.source.remote
 
 import com.example.anhptt.firststepmvvm.data.service.ServiceAPI
 import com.example.anhptt.firststepmvvm.data.source.DataSource
+import com.example.anhptt.firststepmvvm.data.source.local.dao.DataSample
 import com.example.anhptt.firststepmvvm.data.source.response.Book
+import io.reactivex.Flowable
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -20,4 +22,13 @@ class RemoteDataSource @Inject constructor(retrofit: Retrofit) : DataSource {
     }
 
 
+    override fun getDataSample(): Flowable<List<DataSample>> {
+        return Flowable.amb(null)
+    }
+
+    override fun insertDataSample(dataSample: DataSample) {
+    }
+
+    override fun updateDataSample(dataSample: DataSample) {
+    }
 }

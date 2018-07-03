@@ -1,6 +1,6 @@
 package com.example.anhptt.firststepmvvm.common.di
 
-import com.example.anhptt.firststepmvvm.activities.detail.DetailActivity
+import com.example.anhptt.firststepmvvm.activities.detail.view.DetailActivity
 import com.example.anhptt.firststepmvvm.activities.detail.di.DetailActivityModule
 import com.example.anhptt.firststepmvvm.activities.main.di.MainActivityModule
 import com.example.anhptt.firststepmvvm.activities.main.view.MainActivity

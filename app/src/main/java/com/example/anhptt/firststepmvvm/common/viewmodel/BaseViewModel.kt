@@ -7,13 +7,33 @@ import android.arch.lifecycle.ViewModel
 
 open class BaseViewModel : ViewModel(), LifecycleObserver {
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    open fun create() {
+
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    open fun start(){
+    open fun start() {
 
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    open fun stop(){
+    open fun stop() {
+
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    open fun pause() {
+
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    open fun resume() {
+
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    open fun destroy() {
 
     }
 

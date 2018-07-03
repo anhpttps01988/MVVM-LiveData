@@ -15,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -53,6 +54,13 @@ dependencies {
     //Rx
     api "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     api "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    //room
+    api "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+    // optional - RxJava support for Room
+    api "android.arch.persistence.room:rxjava2:$roomVersion"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    api "android.arch.persistence.room:guava:$roomVersion"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

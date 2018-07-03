@@ -8,12 +8,13 @@ import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.example.anhptt.firststepmvvm.R
 import com.example.anhptt.firststepmvvm.common.viewmodel.ViewModelFactory
-import com.example.anhptt.firststepmvvm.activities.detail.DetailActivity
+import com.example.anhptt.firststepmvvm.activities.detail.view.DetailActivity
 import com.example.anhptt.firststepmvvm.activities.main.adapter.BookAdapter
 import com.example.anhptt.firststepmvvm.activities.main.viewmodel.MainActivityContract
 import com.example.anhptt.firststepmvvm.activities.main.viewmodel.MainActivityViewModel
@@ -47,6 +48,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         //set viewmodel navigator event
         binding.appBarMain!!.viewModel = viewModel
         setSupportActionBar(toolbar)
+
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
@@ -58,6 +60,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             this.goToDetail()
         })
         mAdapter = BookAdapter(listOf())
+        recyclerView.addItemDecoration(DividerItemDecoration(this, 1))
         recyclerView.layoutManager = LinearLayoutManager(this@MainActivity, 1, false)
         recyclerView.adapter = mAdapter
     }

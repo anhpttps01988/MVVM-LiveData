@@ -3,7 +3,7 @@ package com.example.anhptt.firststepmvvm.activities.main.viewmodel
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
-import com.example.anhptt.firststepmvvm.SingleLiveEvent
+import com.example.anhptt.firststepmvvm.common.viewmodel.SingleLiveEvent
 import com.example.anhptt.firststepmvvm.common.viewmodel.BaseViewModel
 import com.example.anhptt.firststepmvvm.data.source.DataRepository
 import com.example.anhptt.firststepmvvm.data.source.response.Book
@@ -19,6 +19,8 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
     var name = MutableLiveData<String>()
     var goToDetail = SingleLiveEvent<Void>()
     var bookDataList = MutableLiveData<List<Book>>()
+    var isLoadingData = MutableLiveData<Boolean>()
+    var isRefreshingData = MutableLiveData<Boolean>()
 
     private var compositeDisposable = CompositeDisposable()
 
@@ -28,6 +30,7 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
 
     override fun start() {
         super.start()
+        isLoadingData.postValue(false)
     }
 
     override fun stop() {
@@ -36,6 +39,8 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
     }
 
     override fun loadBookData() {
+        isLoadingData.postValue(true)
+        isRefreshingData.postValue(false)
         compositeDisposable.add(dataRepository.getBooks().flatMap { t: Response<List<Book>> ->
             (if (t.isSuccessful) {
                 Observable.just(t.body())
@@ -48,6 +53,7 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
     }
 
     private fun onBookListResponse(response: List<Book>?) {
+        isLoadingData.postValue(false)
         if (response != null) {
             Log.d(TAG, "size = ${response.size}")
             for (i in response) {
@@ -56,7 +62,14 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
         }
     }
 
+    override fun refreshBookData(isRefresh: Boolean?) {
+        if (isRefresh!!){
+            loadBookData()
+        }
+    }
+
     private fun onBookListError(throws: Throwable) {
+        isLoadingData.postValue(false)
         Log.d(TAG, "${throws.message}")
     }
 

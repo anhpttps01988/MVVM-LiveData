@@ -4,10 +4,11 @@ import android.arch.lifecycle.MutableLiveData
 
 interface MainActivityContract {
 
-    interface ViewModelContract{
-        fun displayName() : MutableLiveData<String>
+    interface ViewModelContract {
+        fun displayName(): MutableLiveData<String>
         fun navigatorDetail()
         fun loadBookData()
+        fun refreshBookData(isRefresh: Boolean?)
     }
 
     interface Navigator {

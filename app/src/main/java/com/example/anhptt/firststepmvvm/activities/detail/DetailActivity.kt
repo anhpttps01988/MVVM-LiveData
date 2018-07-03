@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import com.example.anhptt.firststepmvvm.R
-import com.example.anhptt.firststepmvvm.ViewModelFactory
+import com.example.anhptt.firststepmvvm.common.viewmodel.ViewModelFactory
 import com.example.anhptt.firststepmvvm.activities.detail.viewmodel.DetailActivityViewModel
 import com.example.anhptt.firststepmvvm.common.activity.BaseActivity
 import com.example.anhptt.firststepmvvm.databinding.ActivityDetailBinding

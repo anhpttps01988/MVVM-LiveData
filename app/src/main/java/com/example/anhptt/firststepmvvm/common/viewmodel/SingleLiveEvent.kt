@@ -1,4 +1,4 @@
-package com.example.anhptt.firststepmvvm
+package com.example.anhptt.firststepmvvm.common.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.LifecycleOwner

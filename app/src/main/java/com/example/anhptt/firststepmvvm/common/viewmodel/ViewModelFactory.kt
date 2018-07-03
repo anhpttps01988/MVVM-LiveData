@@ -1,4 +1,4 @@
-package com.example.anhptt.firststepmvvm
+package com.example.anhptt.firststepmvvm.common.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

@@ -6,15 +6,13 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.example.anhptt.firststepmvvm.R
-import com.example.anhptt.firststepmvvm.ViewModelFactory
+import com.example.anhptt.firststepmvvm.common.viewmodel.ViewModelFactory
 import com.example.anhptt.firststepmvvm.activities.detail.DetailActivity
 import com.example.anhptt.firststepmvvm.activities.main.adapter.BookAdapter
 import com.example.anhptt.firststepmvvm.activities.main.viewmodel.MainActivityContract

@@ -16,4 +16,6 @@ interface DaoService {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertData(dataSample: DataSample)
 
+    @Delete
+    fun deleteData(dataSample: DataSample)
 }

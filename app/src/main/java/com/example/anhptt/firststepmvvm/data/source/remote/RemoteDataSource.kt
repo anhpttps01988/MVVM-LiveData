@@ -31,4 +31,7 @@ class RemoteDataSource @Inject constructor(retrofit: Retrofit) : DataSource {
 
     override fun updateDataSample(dataSample: DataSample) {
     }
+
+    override fun deleteDataSample(dataSample: DataSample) {
+    }
 }

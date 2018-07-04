@@ -30,7 +30,7 @@ class DetailActivity : BaseActivity() {
         viewModel = ViewModelProviders.of(this@DetailActivity, viewModelFactory).get(DetailActivityViewModel::class.java)
         lifecycle.addObserver(viewModel)
         binding.contentDetail!!.viewModel = viewModel
-        val adapter = DetailAdapter(arrayListOf())
+        val adapter = DetailAdapter(viewModel, arrayListOf())
         binding.contentDetail!!.recyclerList.layoutManager = LinearLayoutManager(this@DetailActivity, 1, false)
         binding.contentDetail!!.recyclerList.addItemDecoration(DividerItemDecoration(this@DetailActivity, 1))
         binding.contentDetail!!.recyclerList.adapter = adapter

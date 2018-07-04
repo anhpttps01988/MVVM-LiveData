@@ -16,4 +16,5 @@ interface DataSource {
 
     fun updateDataSample(dataSample: DataSample)
 
+    fun deleteDataSample(dataSample: DataSample)
 }

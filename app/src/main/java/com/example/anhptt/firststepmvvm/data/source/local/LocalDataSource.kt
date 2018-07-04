@@ -28,4 +28,8 @@ class LocalDataSource @Inject constructor(var dao: DaoService) : DataSource {
     override fun updateDataSample(dataSample: DataSample) {
         dao.update(dataSample)
     }
+
+    override fun deleteDataSample(dataSample: DataSample) {
+        dao.deleteData(dataSample)
+    }
 }

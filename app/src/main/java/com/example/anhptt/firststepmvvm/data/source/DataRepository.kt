@@ -30,4 +30,8 @@ class DataRepository @Inject constructor(@Local private var localDataSource: Dat
     override fun updateDataSample(dataSample: DataSample) {
         localDataSource.updateDataSample(dataSample)
     }
+
+    override fun deleteDataSample(dataSample: DataSample) {
+        localDataSource.deleteDataSample(dataSample)
+    }
 }

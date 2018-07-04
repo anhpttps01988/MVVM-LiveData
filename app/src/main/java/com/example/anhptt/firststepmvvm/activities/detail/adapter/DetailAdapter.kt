@@ -6,15 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.anhptt.firststepmvvm.R
+import com.example.anhptt.firststepmvvm.activities.detail.viewmodel.DetailActivityViewModel
 import com.example.anhptt.firststepmvvm.data.source.local.dao.DataSample
 import com.example.anhptt.firststepmvvm.databinding.ItemDataSampleBinding
 
 
-class DetailAdapter(listData: List<DataSample>) : RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
+class DetailAdapter(viewModel: DetailActivityViewModel, listData: MutableList<DataSample>) : RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
 
-    private var mListData: List<DataSample>? = null
+    private var mListData: MutableList<DataSample>? = null
+    private var mViewModel: DetailActivityViewModel? = null
 
     init {
+        this.mViewModel = viewModel
         setList(listData)
     }
 
@@ -30,6 +33,18 @@ class DetailAdapter(listData: List<DataSample>) : RecyclerView.Adapter<DetailAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(mListData!![position])
+        val listener = object : ItemActionListener {
+            override fun onItemRemoveClick(dataSample: DataSample, view: View) {
+                mViewModel?.onDeleteData(dataSample = dataSample)
+                mListData!!.removeAt(position)
+                notifyItemRemoved(position)
+            }
+
+            override fun onItemClick(dataSample: DataSample, view: View) {
+                mViewModel?.onBindingDataToField(dataSample = dataSample)
+            }
+        }
+        holder.binding.listener = listener
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,11 +55,11 @@ class DetailAdapter(listData: List<DataSample>) : RecyclerView.Adapter<DetailAda
         }
     }
 
-    fun replaceList(list: List<DataSample>){
+    fun replaceList(list: MutableList<DataSample>) {
         setList(list)
     }
 
-    private fun setList(list: List<DataSample>) {
+    private fun setList(list: MutableList<DataSample>) {
         this.mListData = list
         notifyDataSetChanged()
     }

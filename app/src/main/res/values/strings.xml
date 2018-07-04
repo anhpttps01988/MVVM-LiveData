@@ -9,4 +9,6 @@
     <string name="lbl_first_name">First name</string>
     <string name="lbl_last_name">Last name</string>
     <string name="btn_submit">Submit</string>
+    <string name="btn_update">Update</string>
+    <string name="delete_item">Delete</string>
 </resources>

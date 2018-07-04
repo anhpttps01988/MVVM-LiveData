@@ -3,16 +3,23 @@
 
     <data>
 
+        <import type="android.view.View.OnClickListener" />
+
         <variable
             name="data"
             type="com.example.anhptt.firststepmvvm.data.source.local.dao.DataSample" />
+
+        <variable
+            name="listener"
+            type="com.example.anhptt.firststepmvvm.activities.detail.adapter.ItemActionListener" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="?android:selectableItemBackground"
+        android:onClick="@{(view) -> listener.onItemClick(data, view)}"
+        android:orientation="horizontal"
         android:padding="16dp">
 
         <TextView
@@ -29,5 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{data.last_name}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> listener.onItemRemoveClick(data, view)}"
+            android:text="@string/delete_item" />
     </LinearLayout>
 </layout>

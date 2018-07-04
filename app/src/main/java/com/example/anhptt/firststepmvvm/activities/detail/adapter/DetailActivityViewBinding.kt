@@ -8,7 +8,7 @@ import com.example.anhptt.firststepmvvm.data.source.local.dao.DataSample
 object DetailActivityViewBinding {
     @BindingAdapter("android:dataSampleList")
     @JvmStatic
-    fun setDataSampleList(recyclerView: RecyclerView, list: List<DataSample>?) {
+    fun setDataSampleList(recyclerView: RecyclerView, list: MutableList<DataSample>?) {
         val adapter = recyclerView.adapter as DetailAdapter
         if (list != null){
             adapter.replaceList(list)

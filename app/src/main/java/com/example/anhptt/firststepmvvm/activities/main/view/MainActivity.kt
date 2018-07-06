@@ -21,10 +21,14 @@ import com.example.anhptt.firststepmvvm.activities.main.viewmodel.MainActivityVi
 import com.example.anhptt.firststepmvvm.common.activity.BaseActivity
 import com.example.anhptt.firststepmvvm.common.di.scopes.PerActivity
 import com.example.anhptt.firststepmvvm.databinding.ActivityMainBinding
+import dagger.Component
+import dagger.Module
+import dagger.Provides
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import javax.inject.Inject
+import javax.inject.Qualifier
 
 @PerActivity
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityContract.Navigator {
@@ -120,4 +124,5 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
 }

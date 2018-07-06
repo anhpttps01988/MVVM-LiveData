@@ -63,10 +63,13 @@ class MainActivityViewModel @Inject constructor(private var dataRepository: Data
     }
 
     override fun refreshBookData(isRefresh: Boolean?) {
-        if (isRefresh!!){
+        if (isRefresh!!) {
             loadBookData()
         }
     }
+
+    override fun testDoSomething(): String = "Dagger UnitTest"
+
 
     private fun onBookListError(throws: Throwable) {
         isLoadingData.postValue(false)

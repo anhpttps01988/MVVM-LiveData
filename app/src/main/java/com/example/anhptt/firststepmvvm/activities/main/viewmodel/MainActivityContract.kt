@@ -9,6 +9,7 @@ interface MainActivityContract {
         fun navigatorDetail()
         fun loadBookData()
         fun refreshBookData(isRefresh: Boolean?)
+        fun testDoSomething(): String
     }
 
     interface Navigator {

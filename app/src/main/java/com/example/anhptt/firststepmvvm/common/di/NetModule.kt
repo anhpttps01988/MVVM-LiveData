@@ -20,7 +20,7 @@ import com.google.gson.Gson
 
 
 @Module
-class NetModule{
+open class NetModule{
 
     @Singleton
     @Provides

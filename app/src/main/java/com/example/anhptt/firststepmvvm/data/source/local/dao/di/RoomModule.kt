@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 
 @Module
-class RoomModule {
+open class RoomModule {
 
     @Singleton
     @Provides
